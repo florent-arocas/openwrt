@@ -9,6 +9,9 @@ board_config_update
 board=$(board_name)
 
 case "$board" in
+ubnt,u7-pro)
+	ucidef_set_led_wlan "wifi" "wifi" "blue:wlan" "phy0radio"
+	;;
 ubnt,u7-pro-xgs)
 	ucidef_set_led_wlan "wifi" "wifi" "blue:wlan" "phy0radio"
 	;;

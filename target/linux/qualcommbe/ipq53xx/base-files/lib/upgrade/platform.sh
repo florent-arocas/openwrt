@@ -3,6 +3,10 @@ RAMFS_COPY_BIN='fitblk fit_check_sign'
 
 platform_do_upgrade() {
 	case "$(board_name)" in
+	ubnt,u7-pro)
+		CI_KERNPART="kernel0"
+		fit_do_upgrade "$1"
+		;;
 	ubnt,u7-pro-xgs)
 		CI_KERNPART="kernel0"
 		fit_do_upgrade "$1"
@@ -18,6 +22,9 @@ platform_check_image() {
 	[ "$#" -gt 1 ] && return 1
 
 	case "$(board_name)" in
+	ubnt,u7-pro)
+		fit_check_image "$1"
+		;;
 	ubnt,u7-pro-xgs)
 		fit_check_image "$1"
 		;;
@@ -30,6 +37,9 @@ platform_check_image() {
 
 platform_copy_config() {
 	case "$(board_name)" in
+	ubnt,u7-pro)
+		emmc_copy_config
+		;;
 	ubnt,u7-pro-xgs)
 		emmc_copy_config
 		;;

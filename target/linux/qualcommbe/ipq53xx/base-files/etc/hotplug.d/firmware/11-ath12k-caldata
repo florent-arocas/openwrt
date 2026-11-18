@@ -9,6 +9,9 @@ board=$(board_name)
 case "$FIRMWARE" in
 "ath12k/QCN9274/hw2.0/cal-pci-0001:01:00.0.bin")
 	case "$board" in
+	ubnt,u7-pro)
+		caldata_extract "0:ART" 0x58800 0x2d000
+		;;
 	ubnt,u7-pro-xgs)
 		caldata_extract "0:ART" 0x58800 0x2d000
 		;;
